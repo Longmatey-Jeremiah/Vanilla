@@ -3,7 +3,7 @@ $(document).ready(function(){
     cat();//call cat() function
     brand();//call brand() function
     product();//call product() function
-    function cat(){
+    function diplay_categories(){
         $.ajax({
             url     :   "action.php",
             method  :   "POST",
@@ -13,7 +13,7 @@ $(document).ready(function(){
             }
         })
     }
-    function brand(){
+    function display_brands(){
         $.ajax({
             url     :   "action.php",
             method  :   "POST",
@@ -24,7 +24,6 @@ $(document).ready(function(){
         })
 
     }
-
     function product(){
         $.ajax({
             url     :   "action.php",
@@ -36,7 +35,7 @@ $(document).ready(function(){
         })
     }
 
-    $("body").delegate(".category","click",function(event){
+    $("body").on("click",".category",function(event){
         event.preventDefault();
         var cid =  $(this).attr('cid');
         $.ajax({
@@ -49,7 +48,7 @@ $(document).ready(function(){
         })
     })
 
-    $("body").delegate(".brand","click",function(event){
+    $("body").on("click",".brand",function(event){
         event.preventDefault();
         var bid =  $(this).attr("bid");
         $.ajax({
